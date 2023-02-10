@@ -5,6 +5,10 @@ using {
 
 namespace de.rangulvers.todo;
 
+entity Tasklist {
+    key ID    : UUID;
+        Items : Composition of many Tasks
+}
 
 entity Tasks : managed {
     key ID      : UUID;
