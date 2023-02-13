@@ -8,9 +8,17 @@ class TaskService extends cds.ApplicationService{
             console.log(each)
         })
         
-        this.on('addTask', async req =>{
+        this.on('createTask', async req =>{
             let task = req.data
             await INSERT.into(Tasks).entries(task)
+            
+        })
+
+        
+        this.on('deleteTask', async req => {
+            let task = req.data
+            await DELETE.from(Tasks).where(task)
+            console.log(task)
         })
 
         return super.init()
